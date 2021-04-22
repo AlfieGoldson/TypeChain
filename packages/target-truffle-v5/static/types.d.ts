@@ -1,8 +1,7 @@
 /**
  * Globals
  */
-/// <reference types="chai" />
-/// <reference types="mocha" />
+/// <reference types="jest" />
 
 declare type EventEmitter = import('events').EventEmitter
 
@@ -14,31 +13,9 @@ declare type PromiEvent<T> = import('web3-core').PromiEvent<T>
 declare type TransactionReceipt = import('web3-core').TransactionReceipt
 declare type Web3EventOptions = import('web3-eth-contract').EventOptions
 
-declare const assert: Chai.AssertStatic
-declare const expect: Chai.ExpectStatic
-
 declare const web3: Web3
 
 declare const artifacts: Truffle.Artifacts
-
-/**
- * Global contract function
- */
-interface ContractFunction extends Mocha.SuiteFunction {
-  (title: string, fn: (this: Mocha.Suite, accounts: Truffle.Accounts) => void): Mocha.Suite
-  only: ExclusiveContractFunction
-  skip: PendingContractFunction
-}
-
-interface ExclusiveContractFunction extends Mocha.ExclusiveSuiteFunction {
-  (title: string, fn: (this: Mocha.Suite, accounts: Truffle.Accounts) => void): Mocha.Suite
-}
-
-interface PendingContractFunction extends Mocha.PendingSuiteFunction {
-  (title: string, fn: (this: Mocha.Suite, accounts: Truffle.Accounts) => void): Mocha.Suite | void
-}
-
-declare const contract: ContractFunction
 
 /**
  * Namespace
